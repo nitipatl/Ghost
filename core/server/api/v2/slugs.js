@@ -33,15 +33,16 @@ module.exports = {
             }
         },
         query(frame) {
-            return models.Base.Model.generateSlug(allowedTypes[frame.options.type], frame.data.name, {status: 'all'})
-                .then((slug) => {
-                    if (!slug) {
-                        return Promise.reject(new common.errors.GhostError({
-                            message: common.i18n.t('errors.api.slugs.couldNotGenerateSlug')
-                        }));
-                    }
-                    return slug;
-                });
+            return frame.data.name;
+            // return models.Base.Model.generateSlug(allowedTypes[frame.options.type], frame.data.name, {status: 'all'})
+            //     .then((slug) => {
+            //         if (!slug) {
+            //             return Promise.reject(new common.errors.GhostError({
+            //                 message: common.i18n.t('errors.api.slugs.couldNotGenerateSlug')
+            //             }));
+            //         }
+            //         return slug;
+            //     });
         }
     }
 };

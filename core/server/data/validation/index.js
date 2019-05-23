@@ -80,7 +80,8 @@ validator.extend('isEmptyOrURL', function isEmptyOrURL(str) {
 });
 
 validator.extend('isSlug', function isSlug(str) {
-    return validator.matches(str, /^[a-z0-9\-_]+$/);
+    return true;
+    // return validator.matches(str, /^[a-z0-9\-_]+$/);
 });
 
 /**
