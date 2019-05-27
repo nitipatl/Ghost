@@ -76,15 +76,15 @@ _private.getBlogRedirectUrl = (options) => {
     debug('getBlogRedirectUrl', requestedHost, requestedUrl, blogHostWithProtocol);
 
     // CASE: configured canonical url is HTTPS, but request is HTTP, redirect to requested host + SSL
-    if (urlService.utils.isSSL(blogHostWithProtocol) && !secure) {
-        debug('redirect because protocol does not match');
+    // if (urlService.utils.isSSL(blogHostWithProtocol) && !secure) {
+    //     debug('redirect because protocol does not match');
 
-        return _private.redirectUrl({
-            redirectTo: `https://${requestedHost}`,
-            path: requestedUrl,
-            query: queryParameters
-        });
-    }
+    //     return _private.redirectUrl({
+    //         redirectTo: `https://${requestedHost}`,
+    //         path: requestedUrl,
+    //         query: queryParameters
+    //     });
+    // }
 };
 
 /**
@@ -102,10 +102,10 @@ _private.redirect = (req, res, next, redirectFn) => {
         secure: req.secure
     });
 
-    if (redirectUrl) {
-        debug(`url redirect to: ${redirectUrl}`);
-        return urlService.utils.redirect301(res, redirectUrl);
-    }
+    // if (redirectUrl) {
+    //     debug(`url redirect to: ${redirectUrl}`);
+    //     return urlService.utils.redirect301(res, redirectUrl);
+    // }
 
     debug('no url redirect');
     next();
